@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Text, StyleSheet } from 'react-native';
+import { Button } from 'react-native-paper';
+
 
 export default function AddCharacterForm({ newCharacter, setNewCharacter, addCharacter }) {
     return (
@@ -11,9 +13,9 @@ export default function AddCharacterForm({ newCharacter, setNewCharacter, addCha
                 onChangeText={setNewCharacter}
                 onSubmitEditing={addCharacter}
             />
-            <TouchableOpacity style={styles.button} onPress={addCharacter}>
+            <Button style={styles.button} onPress={addCharacter}>
                 <Text style={styles.buttonText}>⚔️</Text>
-            </TouchableOpacity>
+            </Button>
         </View>
     );
 }
