@@ -6,6 +6,7 @@ import {
   Alert,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { PaperProvider } from 'react-native-paper';
 import Header from "./components/Header";
 import AddCharacterForm from "./components/AddCharacterForm";
 import CharacterCard from "./components/CharacterCard";
@@ -88,22 +89,24 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="dark" />
-      <Header />
+    <PaperProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar style="dark" />
+        <Header />
 
-      <AddCharacterForm
-        newCharacter={newCharacter}
-        setNewCharacter={setNewCharacter}
-        addCharacter={addCharacter}
-      />
-      <FlatList
-        data={characters}
-        keyExtractor={item => String(item.id)}
-        renderItem={renderCharacter}
-        style={styles.list}
-      />
-    </SafeAreaView>
+        <AddCharacterForm
+          newCharacter={newCharacter}
+          setNewCharacter={setNewCharacter}
+          addCharacter={addCharacter}
+        />
+        <FlatList
+          data={characters}
+          keyExtractor={item => String(item.id)}
+          renderItem={renderCharacter}
+          style={styles.list}
+        />
+      </SafeAreaView>
+    </PaperProvider>
   );
 }
 
