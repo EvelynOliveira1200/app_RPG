@@ -1,13 +1,15 @@
 import React from "react";
-import { Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Card } from 'react-native-paper';
+import { Text, StyleSheet } from "react-native";
+import { Button, Card } from 'react-native-paper';
 
 export default function CharacterCard({ character, onToggleRecruit, onRemove }) {
   return (
-    <Card style={{ marginBottom: 10 }}>
-      <TouchableOpacity
+    <Card style={{ marginBottom: 10 }}
+    onPress={() => onToggleRecruit(character)}
+        onLongPress={() => onRemove(character)}>
+      <Button
         style={[styles.character, character.recruited && styles.characterRecruited]}
-        onPress={() => onToggleRecruit(character)}
+         onPress={() => onToggleRecruit(character)}
         onLongPress={() => onRemove(character)}
       >
         <Text style={[styles.characterText, character.recruited && styles.characterRecruitedText]}>
@@ -16,7 +18,7 @@ export default function CharacterCard({ character, onToggleRecruit, onRemove }) 
         <Text style={styles.status}>
           {character.recruited ? "⭐" : "💤"}
         </Text>
-      </TouchableOpacity>
+      </Button>
     </Card>
   );
 }

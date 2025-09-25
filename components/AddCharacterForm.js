@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { Button, TextInput } from 'react-native-paper';
 
 export default function AddCharacterForm({ newCharacter, setNewCharacter, addCharacter }) {
     return (
@@ -11,9 +12,9 @@ export default function AddCharacterForm({ newCharacter, setNewCharacter, addCha
                 onChangeText={setNewCharacter}
                 onSubmitEditing={addCharacter}
             />
-            <TouchableOpacity style={styles.button} onPress={addCharacter}>
+            <Button style={styles.button} onPress={addCharacter}>
                 <Text style={styles.buttonText}>⚔️</Text>
-            </TouchableOpacity>
+            </Button>
         </View>
     );
 }
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: "#E69A28",
         borderRadius: 8,
-        padding: 12,
+        padding: 8,
         backgroundColor: "#F4E4BC",
         color: "#1A0E0A",
         fontSize: 16,
